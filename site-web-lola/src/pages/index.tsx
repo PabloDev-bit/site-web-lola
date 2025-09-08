@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 import BienfaitsWithWhale from "@/components/BienfaitsWithWhale";
+import Testimonials from "@/components/Testimonials";
 
 export default function Home() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -37,6 +38,7 @@ export default function Home() {
             <nav className="hidden md:flex items-center gap-6 text-sm">
               <a href="#pour-qui" className="hover:text-[#A37B53] transition">Pour qui ?</a>
               <a href="#bienfaits" className="hover:text-[#A37B53] transition">Bienfaits</a>
+              <a href="#temoignages" className="hover:text-[#A37B53] transition">Avis</a>
               <a href="#contact" className="hover:text-[#A37B53] transition">Contact</a>
             </nav>
 
@@ -71,6 +73,13 @@ export default function Home() {
                   className="py-3 text-base border-b border-[#F0E6DA] hover:text-[#A37B53]"
                 >
                   Bienfaits
+                </a>
+                <a
+                  href="#temoignages"
+                  onClick={() => setMenuOpen(false)}
+                  className="py-3 text-base border-b border-[#F0E6DA] hover:text-[#A37B53]"
+                >
+                  Avis
                 </a>
                 <a
                   href="#contact"
@@ -186,7 +195,7 @@ export default function Home() {
           </div>
         </section>
 
-        {/* BIENFAITS + BALEINE */}
+        {/* BIENFAITS */}
         <section id="bienfaits" className="scroll-mt-24">
           <BienfaitsWithWhale
             title="Retrouver l’équilibre entre le corps et l’esprit"
@@ -199,6 +208,16 @@ export default function Home() {
             ]}
           />
         </section>
+
+        {/* AVIS (Testimonials) */}
+        <Testimonials
+          id="temoignages"
+          title="Retours de séance"
+          subtitle="Des mots reçus après des accompagnements, partagés avec leur accord."
+          businessName="Lola Hernandez – Kinésiologue"
+          businessUrl="https://ton-domaine.com"
+          // Optionnel: tu peux passer un tableau testimonials personnalisé ici
+        />
 
         {/* CONTACT */}
         <section id="contact" className="py-14 sm:py-16 scroll-mt-24">
