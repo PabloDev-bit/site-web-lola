@@ -3,6 +3,8 @@ import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
 
+import BienfaitsWithWhale from "@/components/BienfaitsWithWhale";
+
 export default function Home() {
   return (
     <>
@@ -15,7 +17,6 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
 
-      {/* Fond crème → sable très clair, sans rose. */}
       <main className="min-h-screen text-stone-800 bg-[#FAF5EF]">
         {/* NAV */}
         <header className="sticky top-0 z-30 bg-[#FAF5EF]/70 backdrop-blur border-b border-[#EDE1D4]">
@@ -36,7 +37,6 @@ export default function Home() {
 
         {/* HERO */}
         <section className="relative">
-          {/* Dégradé radial beige en arrière-plan */}
           <div
             aria-hidden
             className="pointer-events-none absolute inset-0 -z-10"
@@ -45,34 +45,28 @@ export default function Home() {
                 "radial-gradient(1200px 600px at 20% 20%, #FFF8F1 0%, #F7EFE7 45%, #F3E7DB 75%, #FAF5EF 100%)",
             }}
           />
-          {/* Motif vague sable très clair */}
           <WaveTop className="text-[#F1E7DB]" />
-
           <div className="mx-auto max-w-6xl px-4 pt-12 pb-16">
             <div className="grid lg:grid-cols-2 gap-12 items-center">
-              {/* Texte */}
               <div className="order-2 lg:order-1">
                 <span className="inline-flex items-center gap-2 rounded-full bg-[#F1E8DE] px-3 py-1 text-xs text-[#8F6B46] border border-[#E7D7C6]">
                   <HandsLogo className="h-4 w-4 text-[#C9AD92]" />
                   Kinésiologie douce & holistique
                 </span>
-
                 <h1 className="mt-3 text-4xl sm:text-5xl font-semibold leading-tight text-stone-900">
                   Bonjour, je suis <span className="text-[#A37B53]">Lola</span>
                 </h1>
-
                 <p className="mt-5 leading-relaxed text-stone-700">
-                  Mon chemin de vie m’a conduite vers la <strong>kinésiologie</strong>.
-                  J’ai commencé ma formation en <strong>septembre 2024</strong> pour transmettre
+                  Mon chemin de vie m’a conduite vers la <strong>kinésiologie</strong>. J’ai
+                  commencé ma formation en <strong>septembre 2024</strong> pour transmettre
                   force, équilibre et confiance. J’utilise déjà <em>Santé par le Toucher</em>,
                   <em> Brain Gym</em> et <em>Aura énergétique</em> pour construire des séances
-                  douces et efficaces, adaptées à chacun.
+                  douces, efficaces et adaptées à chacun.
                 </p>
                 <p className="mt-4 leading-relaxed text-stone-700">
                   En <strong>septembre 2026</strong>, j’ajoute les <strong>réflexes archaïques</strong>
                   afin d’accompagner enfants, adultes, parents et enseignants avec des clés durables.
                 </p>
-
                 <div className="mt-7 flex flex-wrap items-center gap-3">
                   <a
                     href="#contact"
@@ -89,9 +83,7 @@ export default function Home() {
                 </div>
               </div>
 
-              {/* Photo */}
               <div className="relative order-1 lg:order-2">
-                {/* halo crème */}
                 <div className="absolute -inset-6 rounded-[2rem] bg-[#EADCCF]/50 blur-2xl" />
                 <div className="relative overflow-hidden rounded-[2rem] border border-[#E7D7C6] shadow-sm bg-white">
                   <Image
@@ -103,14 +95,12 @@ export default function Home() {
                     priority
                   />
                 </div>
-                {/* mains filigrane caramel doux */}
                 <div className="absolute -bottom-6 -right-4 opacity-35">
                   <HandsLogo className="h-20 w-20 text-[#D8C2AE]" />
                 </div>
               </div>
             </div>
           </div>
-
           <WaveSeparator className="text-[#EEE3D7]" />
         </section>
 
@@ -122,7 +112,6 @@ export default function Home() {
               title="Un accompagnement pour tous les âges"
               subtitle="Des séances adaptées avec douceur et authenticité."
             />
-
             <div className="mt-10 grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
               <Card title="Enfants" text="Développement, apprentissages, concentration, gestion des émotions, confiance en soi." />
               <Card title="Parents" text="Mieux comprendre et accompagner vos enfants, trouver un soutien face aux défis du quotidien." />
@@ -132,46 +121,17 @@ export default function Home() {
           </div>
         </section>
 
-        {/* BIENFAITS */}
-        <section id="bienfaits" className="relative py-16 bg-[#FFFDF9]">
-          <WaveTop className="text-[#F6EEE4]" />
-
-          <div className="mx-auto max-w-6xl px-4">
-            <SectionTitle
-              eyebrow="Bienfaits"
-              title="Retrouver l’équilibre entre le corps et l’esprit"
-              subtitle="Libérer les tensions, mieux gérer le stress et avancer plus sereinement."
-            />
-
-            <div className="mt-10 grid md:grid-cols-2 gap-8">
-              <List
-                items={[
-                  "Apaisement émotionnel et diminution du stress",
-                  "Confiance en soi, clarté intérieure et motivation",
-                  "Soutien dans les périodes de changement ou face aux blocages",
-                  "Accompagnement des sportifs : performance, pression, récupération",
-                ]}
-              />
-              <div className="relative">
-                <div className="absolute -inset-6 rounded-3xl blur-xl"
-                     style={{ background: "linear-gradient(120deg,#F2E7DA70,#EBDCCD70)" }} />
-                <div className="relative rounded-3xl border border-[#E7D7C6] bg-[#F7EFE7]/70 p-6">
-                  <p className="leading-relaxed text-stone-700">
-                    Chaque séance est unique. Grâce au test musculaire et à une écoute
-                    bienveillante, nous identifions ce qui a besoin d’être rééquilibré
-                    pour remettre en mouvement vos ressources profondes.
-                  </p>
-                  <div className="mt-6 flex items-center gap-3 text-sm">
-                    <HandsLogo className="h-5 w-5 text-[#C9AD92]" />
-                    <span className="text-stone-600">Approche globale, respectueuse et personnalisée.</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <WaveSeparator className="text-[#F6EEE4]" />
-        </section>
+        {/* BIENFAITS + BALEINE (fusionnés) */}
+        <BienfaitsWithWhale
+          title="Retrouver l’équilibre entre le corps et l’esprit"
+          subtitle="Libérer les tensions, mieux gérer le stress et avancer plus sereinement."
+          items={[
+            "Apaisement émotionnel et diminution du stress",
+            "Confiance en soi, clarté intérieure et motivation",
+            "Soutien dans les périodes de changement ou face aux blocages",
+            "Accompagnement des sportifs : performance, pression, récupération",
+          ]}
+        />
 
         {/* CONTACT */}
         <section id="contact" className="py-16">
@@ -181,7 +141,6 @@ export default function Home() {
               title="Réserver une séance"
               subtitle="À domicile ou chez moi à La Flachère (Les Belleville)."
             />
-
             <div className="mt-10 grid md:grid-cols-2 gap-8">
               <div className="rounded-3xl border border-[#E7D7C6] bg-[#FFFDFB]/80 p-6">
                 <h3 className="font-semibold text-stone-800">Coordonnées</h3>
@@ -213,7 +172,6 @@ export default function Home() {
                   <Price title="Adulte" value="50 € / séance" />
                   <Price title="Enfant" value="35 € / séance" />
                 </ul>
-
                 <div className="mt-6">
                   <a
                     href="mailto:lola7473@hotmail.fr?subject=Prise%20de%20rendez-vous%20Kin%C3%A9siologie"
@@ -241,12 +199,8 @@ export default function Home() {
   );
 }
 
-/* ---------- Composants UI ---------- */
-function SectionTitle({
-  eyebrow,
-  title,
-  subtitle,
-}: { eyebrow: string; title: string; subtitle?: string }) {
+/* ====================== UI PARTAGÉE ====================== */
+function SectionTitle({ eyebrow, title, subtitle }: { eyebrow: string; title: string; subtitle?: string }) {
   return (
     <div className="max-w-2xl">
       <div className="text-xs inline-flex items-center gap-2 rounded-full bg-[#F1E8DE] px-3 py-1 text-[#8F6B46] border border-[#E7D7C6]">
@@ -270,21 +224,6 @@ function Card({ title, text }: { title: string; text: string }) {
   );
 }
 
-function List({ items }: { items: string[] }) {
-  return (
-    <ul className="space-y-3">
-      {items.map((t, i) => (
-        <li key={i} className="flex items-start gap-3">
-          <span className="mt-1">
-            <HandsLogo className="h-5 w-5 text-[#C9AD92]" />
-          </span>
-          <span className="text-stone-700">{t}</span>
-        </li>
-      ))}
-    </ul>
-  );
-}
-
 function Price({ title, value }: { title: string; value: string }) {
   return (
     <li className="rounded-2xl border border-[#E7D7C6] bg-[#F7EFE7] p-4">
@@ -294,9 +233,7 @@ function Price({ title, value }: { title: string; value: string }) {
   );
 }
 
-/* ---------- Icônes & Vagues ---------- */
 function HandsLogo({ className }: { className?: string }) {
-  // Pictogramme "deux mains" doux et organique
   return (
     <svg viewBox="0 0 64 64" className={className} fill="none" aria-hidden="true">
       <path d="M9 34c6-5 13-9 21-11 2-.6 3.8.7 3.7 2.6-.2 3.9-3.3 6.9-8.4 8.8"
