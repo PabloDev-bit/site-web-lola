@@ -1,4 +1,5 @@
 // pages/index.tsx
+import { useState } from "react";
 import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
@@ -6,6 +7,8 @@ import Link from "next/link";
 import BienfaitsWithWhale from "@/components/BienfaitsWithWhale";
 
 export default function Home() {
+  const [menuOpen, setMenuOpen] = useState(false);
+
   return (
     <>
       <Head>
@@ -15,28 +18,74 @@ export default function Home() {
           content="Kinésiologie douce et holistique — séances adaptées pour enfants, parents, adultes et enseignants. À domicile ou à La Flachère (Les Belleville)."
         />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+        {/* Couleur de la barre d'état mobile */}
+        <meta name="theme-color" content="#FAF5EF" />
       </Head>
 
       <main className="min-h-screen text-stone-800 bg-[#FAF5EF]">
         {/* NAV */}
-        <header className="sticky top-0 z-30 bg-[#FAF5EF]/70 backdrop-blur border-b border-[#EDE1D4]">
+        <header className="sticky top-0 z-40 bg-[#FAF5EF]/80 backdrop-blur border-b border-[#EDE1D4]">
           <div className="mx-auto max-w-6xl px-4 py-3 flex items-center justify-between">
             <div className="flex items-center gap-3">
               <HandsLogo className="h-8 w-8 text-[#D8C2AE]" />
-              <span className="font-semibold tracking-wide text-stone-700">
+              <Link href="#" className="font-semibold tracking-wide text-stone-700">
                 Lola Hernandez
-              </span>
+              </Link>
             </div>
-            <nav className="hidden sm:flex items-center gap-6 text-sm">
+
+            {/* Desktop nav */}
+            <nav className="hidden md:flex items-center gap-6 text-sm">
               <a href="#pour-qui" className="hover:text-[#A37B53] transition">Pour qui ?</a>
               <a href="#bienfaits" className="hover:text-[#A37B53] transition">Bienfaits</a>
               <a href="#contact" className="hover:text-[#A37B53] transition">Contact</a>
             </nav>
+
+            {/* Mobile burger */}
+            <button
+              aria-label="Ouvrir le menu"
+              aria-expanded={menuOpen}
+              onClick={() => setMenuOpen((v) => !v)}
+              className="md:hidden inline-flex items-center justify-center rounded-lg border border-[#E7D7C6] bg-white/70 px-3 py-2 text-sm"
+            >
+              <span className="sr-only">Menu</span>
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M3 6h18M3 12h18M3 18h18" stroke="#8F6B46" strokeWidth="2" strokeLinecap="round" />
+              </svg>
+            </button>
           </div>
+
+          {/* Mobile drawer */}
+          {menuOpen && (
+            <div className="md:hidden border-t border-[#EDE1D4] bg-[#FFFCF8]/95 backdrop-blur">
+              <nav className="mx-auto max-w-6xl px-4 py-3 flex flex-col">
+                <a
+                  href="#pour-qui"
+                  onClick={() => setMenuOpen(false)}
+                  className="py-3 text-base border-b border-[#F0E6DA] hover:text-[#A37B53]"
+                >
+                  Pour qui ?
+                </a>
+                <a
+                  href="#bienfaits"
+                  onClick={() => setMenuOpen(false)}
+                  className="py-3 text-base border-b border-[#F0E6DA] hover:text-[#A37B53]"
+                >
+                  Bienfaits
+                </a>
+                <a
+                  href="#contact"
+                  onClick={() => setMenuOpen(false)}
+                  className="py-3 text-base hover:text-[#A37B53]"
+                >
+                  Contact
+                </a>
+              </nav>
+            </div>
+          )}
         </header>
 
         {/* HERO */}
-        <section className="relative">
+        <section className="relative scroll-mt-24" id="accueil">
           <div
             aria-hidden
             className="pointer-events-none absolute inset-0 -z-10"
@@ -46,19 +95,42 @@ export default function Home() {
             }}
           />
           <WaveTop className="text-[#F1E7DB]" />
-          <div className="mx-auto max-w-6xl px-4 pt-12 pb-16">
-            <div className="grid lg:grid-cols-2 gap-12 items-center">
+
+          <div className="mx-auto max-w-6xl px-4 pt-8 sm:pt-12 pb-14 sm:pb-16">
+            {/* Mobile-first: l'image en premier, texte ensuite */}
+            <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 items-center">
+              {/* IMAGE */}
+              <div className="relative order-1 lg:order-2">
+                <div className="absolute -inset-6 rounded-[2rem] bg-[#EADCCF]/50 blur-2xl" />
+                <div className="relative overflow-hidden rounded-[1.5rem] sm:rounded-[2rem] border border-[#E7D7C6] shadow-sm bg-white">
+                  <Image
+                    src="/lola-photo.JPG"
+                    alt="Portrait de Lola Hernandez, kinésiologue"
+                    width={960}
+                    height={1200}
+                    sizes="(max-width: 1024px) 100vw, 50vw"
+                    className="h-auto w-full object-cover"
+                    priority
+                  />
+                </div>
+                <div className="absolute -bottom-6 -right-4 opacity-35">
+                  <HandsLogo className="h-16 w-16 sm:h-20 sm:w-20 text-[#D8C2AE]" />
+                </div>
+              </div>
+
+              {/* TEXTE */}
               <div className="order-2 lg:order-1">
-                <span className="inline-flex items-center gap-2 rounded-full bg-[#F1E8DE] px-3 py-1 text-xs text-[#8F6B46] border border-[#E7D7C6]">
+                <span className="inline-flex items-center gap-2 rounded-full bg-[#F1E8DE] px-3 py-1 text-[11px] sm:text-xs text-[#8F6B46] border border-[#E7D7C6]">
                   <HandsLogo className="h-4 w-4 text-[#C9AD92]" />
                   Kinésiologie douce & holistique
                 </span>
-                <h1 className="mt-3 text-4xl sm:text-5xl font-semibold leading-tight text-stone-900">
+
+                <h1 className="mt-3 text-3xl sm:text-4xl lg:text-5xl font-semibold leading-tight text-stone-900">
                   Bonjour, je suis <span className="text-[#A37B53]">Lola</span>
                 </h1>
 
-                {/* Nouvelle description préférée */}
-                <p className="mt-5 leading-relaxed text-stone-700">
+                {/* Description validée */}
+                <p className="mt-4 sm:mt-5 text-base sm:text-[1.05rem] leading-relaxed text-stone-700">
                   Je suis <strong>Lola Hernandez</strong>, passionnée par le bien-être et par
                   l’<strong>intelligence du corps</strong>. La <strong>kinésiologie</strong> est
                   devenue pour moi une évidence&nbsp;: elle révèle le dialogue entre le
@@ -66,62 +138,46 @@ export default function Home() {
                   à l’<strong>équilibre</strong>, à la <strong>régénération</strong> et à la
                   découverte de nos <strong>ressources intérieures</strong>.
                 </p>
-                {/* Contexte formation & outils (conservé, reformulé) */}
-                <p className="mt-4 leading-relaxed text-stone-700">
+
+                {/* Contexte formation & outils */}
+                <p className="mt-3 sm:mt-4 text-base sm:text-[1.05rem] leading-relaxed text-stone-700">
                   En formation depuis <strong>septembre 2024</strong>, j’accompagne déjà avec
                   <em> Santé par le Toucher</em>, <em> Brain Gym</em> et l’<em>Aura énergétique</em>
                   afin de construire des séances douces et personnalisées. Dès{" "}
                   <strong>septembre 2026</strong>, j’ajouterai le travail sur les{" "}
-                  <strong>réflexes archaïques</strong> pour aller encore plus loin dans
-                  l’accompagnement des enfants, des parents, des adultes et des enseignants.
+                  <strong>réflexes archaïques</strong>.
                 </p>
 
-                <div className="mt-7 flex flex-wrap items-center gap-3">
+                <div className="mt-6 sm:mt-7 flex flex-col sm:flex-row sm:flex-wrap items-stretch sm:items-center gap-3">
                   <a
                     href="#contact"
-                    className="inline-flex items-center justify-center rounded-xl bg-[#A37B53] text-white px-5 py-3 text-sm font-medium shadow-sm hover:brightness-95 transition"
+                    className="w-full sm:w-auto inline-flex items-center justify-center rounded-xl bg-[#A37B53] text-white px-5 py-3 text-sm font-medium shadow-sm hover:brightness-95 transition"
                   >
                     Prendre contact
                   </a>
                   <a
                     href="#bienfaits"
-                    className="inline-flex items-center justify-center rounded-xl border border-[#E0D3C4] bg-white/70 px-5 py-3 text-sm font-medium hover:border-[#C9AD92] hover:text-[#8F6B46] transition"
+                    className="w-full sm:w-auto inline-flex items-center justify-center rounded-xl border border-[#E0D3C4] bg-white/80 px-5 py-3 text-sm font-medium hover:border-[#C9AD92] hover:text-[#8F6B46] transition"
                   >
                     Découvrir les bienfaits
                   </a>
                 </div>
               </div>
-
-              <div className="relative order-1 lg:order-2">
-                <div className="absolute -inset-6 rounded-[2rem] bg-[#EADCCF]/50 blur-2xl" />
-                <div className="relative overflow-hidden rounded-[2rem] border border-[#E7D7C6] shadow-sm bg-white">
-                  <Image
-                    src="/lola-photo.JPG"
-                    alt="Lola Hernandez"
-                    width={960}
-                    height={1200}
-                    className="h-full w-full object-cover"
-                    priority
-                  />
-                </div>
-                <div className="absolute -bottom-6 -right-4 opacity-35">
-                  <HandsLogo className="h-20 w-20 text-[#D8C2AE]" />
-                </div>
-              </div>
             </div>
           </div>
+
           <WaveSeparator className="text-[#EEE3D7]" />
         </section>
 
         {/* POUR QUI */}
-        <section id="pour-qui" className="py-16">
+        <section id="pour-qui" className="py-14 sm:py-16 scroll-mt-24">
           <div className="mx-auto max-w-6xl px-4">
             <SectionTitle
               eyebrow="Pour qui ?"
               title="Un accompagnement pour tous les âges"
               subtitle="Des séances adaptées avec douceur et authenticité."
             />
-            <div className="mt-10 grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="mt-8 sm:mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
               <Card title="Enfants" text="Développement, apprentissages, concentration, gestion des émotions, confiance en soi." />
               <Card title="Parents" text="Mieux comprendre et accompagner vos enfants, trouver un soutien face aux défis du quotidien." />
               <Card title="Adultes" text="Dépasser des blocages, gérer le stress, apaiser les émotions, retrouver confiance et alignement." />
@@ -130,28 +186,30 @@ export default function Home() {
           </div>
         </section>
 
-        {/* BIENFAITS + BALEINE (fusionnés) */}
-        <BienfaitsWithWhale
-          title="Retrouver l’équilibre entre le corps et l’esprit"
-          subtitle="Libérer les tensions, mieux gérer le stress et avancer plus sereinement."
-          items={[
-            "Apaisement émotionnel et diminution du stress",
-            "Confiance en soi, clarté intérieure et motivation",
-            "Soutien dans les périodes de changement ou face aux blocages",
-            "Accompagnement des sportifs : performance, pression, récupération",
-          ]}
-        />
+        {/* BIENFAITS + BALEINE */}
+        <section id="bienfaits" className="scroll-mt-24">
+          <BienfaitsWithWhale
+            title="Retrouver l’équilibre entre le corps et l’esprit"
+            subtitle="Libérer les tensions, mieux gérer le stress et avancer plus sereinement."
+            items={[
+              "Apaisement émotionnel et diminution du stress",
+              "Confiance en soi, clarté intérieure et motivation",
+              "Soutien dans les périodes de changement ou face aux blocages",
+              "Accompagnement des sportifs : performance, pression, récupération",
+            ]}
+          />
+        </section>
 
         {/* CONTACT */}
-        <section id="contact" className="py-16">
+        <section id="contact" className="py-14 sm:py-16 scroll-mt-24">
           <div className="mx-auto max-w-6xl px-4">
             <SectionTitle
               eyebrow="Contact"
               title="Réserver une séance"
               subtitle="À domicile ou chez moi à La Flachère (Les Belleville)."
             />
-            <div className="mt-10 grid md:grid-cols-2 gap-8">
-              <div className="rounded-3xl border border-[#E7D7C6] bg-[#FFFDFB]/80 p-6">
+            <div className="mt-8 sm:mt-10 grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
+              <div className="rounded-3xl border border-[#E7D7C6] bg-[#FFFDFB]/80 p-5 sm:p-6">
                 <h3 className="font-semibold text-stone-800">Coordonnées</h3>
                 <ul className="mt-3 space-y-2 text-stone-700">
                   <li>
@@ -163,7 +221,7 @@ export default function Home() {
                   <li>
                     <span className="font-medium">Téléphone :</span>{" "}
                     <a href="tel:+33659930142" className="text-[#8F6B46] hover:opacity-80">
-                      06 59 93 01 42
+                      06&nbsp;59&nbsp;93&nbsp;01&nbsp;42
                     </a>
                   </li>
                   <li>
@@ -175,16 +233,16 @@ export default function Home() {
                 </p>
               </div>
 
-              <div className="rounded-3xl border border-[#E7D7C6] bg-[#FFFDFB]/80 p-6">
+              <div className="rounded-3xl border border-[#E7D7C6] bg-[#FFFDFB]/80 p-5 sm:p-6">
                 <h3 className="font-semibold text-stone-800">Tarifs</h3>
-                <ul className="mt-3 grid sm:grid-cols-2 gap-3">
+                <ul className="mt-3 grid grid-cols-1 sm:grid-cols-2 gap-3">
                   <Price title="Adulte" value="50 € / séance" />
                   <Price title="Enfant" value="35 € / séance" />
                 </ul>
                 <div className="mt-6">
                   <a
                     href="mailto:lola7473@hotmail.fr?subject=Prise%20de%20rendez-vous%20Kin%C3%A9siologie"
-                    className="inline-flex items-center justify-center rounded-xl bg-[#A37B53] text-white px-5 py-3 text-sm font-medium shadow-sm hover:brightness-95 transition"
+                    className="w-full sm:w-auto inline-flex items-center justify-center rounded-xl bg-[#A37B53] text-white px-5 py-3 text-sm font-medium shadow-sm hover:brightness-95 transition"
                   >
                     Écrire à Lola
                   </a>
@@ -194,8 +252,8 @@ export default function Home() {
           </div>
         </section>
 
-        <footer className="border-t border-[#E7D7C6] py-8">
-          <div className="mx-auto max-w-6xl px-4 flex items-center justify-between text-sm text-stone-500">
+        <footer className="border-t border-[#E7D7C6] py-8 [padding-bottom:env(safe-area-inset-bottom)]">
+          <div className="mx-auto max-w-6xl px-4 flex flex-col sm:flex-row gap-3 sm:gap-0 sm:items-center sm:justify-between text-sm text-stone-500">
             <p>© {new Date().getFullYear()} Lola Hernandez — Kinésiologue</p>
             <div className="flex items-center gap-2">
               <HandsLogo className="h-5 w-5 text-[#D8C2AE]" />
@@ -212,10 +270,10 @@ export default function Home() {
 function SectionTitle({ eyebrow, title, subtitle }: { eyebrow: string; title: string; subtitle?: string }) {
   return (
     <div className="max-w-2xl">
-      <div className="text-xs inline-flex items-center gap-2 rounded-full bg-[#F1E8DE] px-3 py-1 text-[#8F6B46] border border-[#E7D7C6]">
+      <div className="text-[11px] sm:text-xs inline-flex items-center gap-2 rounded-full bg-[#F1E8DE] px-3 py-1 text-[#8F6B46] border border-[#E7D7C6]">
         <span>{eyebrow}</span>
       </div>
-      <h2 className="mt-3 text-2xl sm:text-3xl font-semibold text-stone-900">{title}</h2>
+      <h2 className="mt-3 text-xl sm:text-2xl lg:text-3xl font-semibold text-stone-900">{title}</h2>
       {subtitle && <p className="mt-2 text-stone-600 leading-relaxed">{subtitle}</p>}
     </div>
   );
@@ -223,7 +281,7 @@ function SectionTitle({ eyebrow, title, subtitle }: { eyebrow: string; title: st
 
 function Card({ title, text }: { title: string; text: string }) {
   return (
-    <div className="group relative rounded-3xl border border-[#E7D7C6] bg-[#FFFCF8]/80 p-5 transition hover:border-[#C9AD92] hover:shadow-sm">
+    <div className="group relative rounded-2xl sm:rounded-3xl border border-[#E7D7C6] bg-[#FFFCF8]/80 p-4 sm:p-5 transition hover:border-[#C9AD92] hover:shadow-sm">
       <div className="absolute -top-3 -right-3 opacity-30">
         <HandsLogo className="h-8 w-8 text-[#D8C2AE]" />
       </div>
@@ -259,7 +317,7 @@ function HandsLogo({ className }: { className?: string }) {
 
 function WaveSeparator({ className }: { className?: string }) {
   return (
-    <svg viewBox="0 0 1440 120" className={`w-full h-[80px] ${className}`} preserveAspectRatio="none" aria-hidden="true">
+    <svg viewBox="0 0 1440 120" className={`w-full h-[70px] sm:h-[80px] ${className}`} preserveAspectRatio="none" aria-hidden="true">
       <path
         d="M0,64L60,69.3C120,75,240,85,360,96C480,107,600,117,720,112C840,107,960,85,1080,80C1200,75,1320,85,1380,90L1440,96L1440,0L1380,0C1320,0,1200,0,1080,0C960,0,840,0,720,0C600,0,480,0,360,0C240,0,120,0,60,0L0,0Z"
         fill="currentColor"
@@ -270,7 +328,7 @@ function WaveSeparator({ className }: { className?: string }) {
 
 function WaveTop({ className }: { className?: string }) {
   return (
-    <svg viewBox="0 0 1440 120" className={`w-full h-[60px] ${className}`} preserveAspectRatio="none" aria-hidden="true">
+    <svg viewBox="0 0 1440 120" className={`w-full h-[50px] sm:h-[60px] ${className}`} preserveAspectRatio="none" aria-hidden="true">
       <path
         d="M0,32L60,37.3C120,43,240,53,360,64C480,75,600,85,720,80C840,75,960,53,1080,48C1200,43,1320,53,1380,58.7L1440,64L1440,0L1380,0C1320,0,1200,0,1080,0C960,0,840,0,720,0C600,0,480,0,360,0C240,0,120,0,60,0L0,0Z"
         fill="currentColor"
