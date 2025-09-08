@@ -56,17 +56,26 @@ export default function Home() {
                 <h1 className="mt-3 text-4xl sm:text-5xl font-semibold leading-tight text-stone-900">
                   Bonjour, je suis <span className="text-[#A37B53]">Lola</span>
                 </h1>
+
+                {/* Nouvelle description préférée */}
                 <p className="mt-5 leading-relaxed text-stone-700">
-                  Mon chemin de vie m’a conduite vers la <strong>kinésiologie</strong>. J’ai
-                  commencé ma formation en <strong>septembre 2024</strong> pour transmettre
-                  force, équilibre et confiance. J’utilise déjà <em>Santé par le Toucher</em>,
-                  <em> Brain Gym</em> et <em>Aura énergétique</em> pour construire des séances
-                  douces, efficaces et adaptées à chacun.
+                  Je suis <strong>Lola Hernandez</strong>, passionnée par le bien-être et par
+                  l’<strong>intelligence du corps</strong>. La <strong>kinésiologie</strong> est
+                  devenue pour moi une évidence&nbsp;: elle révèle le dialogue entre le
+                  <em> cerveau</em>, le <em>corps</em> et les <em>émotions</em>, et ouvre la voie
+                  à l’<strong>équilibre</strong>, à la <strong>régénération</strong> et à la
+                  découverte de nos <strong>ressources intérieures</strong>.
                 </p>
+                {/* Contexte formation & outils (conservé, reformulé) */}
                 <p className="mt-4 leading-relaxed text-stone-700">
-                  En <strong>septembre 2026</strong>, j’ajoute les <strong>réflexes archaïques</strong>
-                  afin d’accompagner enfants, adultes, parents et enseignants avec des clés durables.
+                  En formation depuis <strong>septembre 2024</strong>, j’accompagne déjà avec
+                  <em> Santé par le Toucher</em>, <em> Brain Gym</em> et l’<em>Aura énergétique</em>
+                  afin de construire des séances douces et personnalisées. Dès{" "}
+                  <strong>septembre 2026</strong>, j’ajouterai le travail sur les{" "}
+                  <strong>réflexes archaïques</strong> pour aller encore plus loin dans
+                  l’accompagnement des enfants, des parents, des adultes et des enseignants.
                 </p>
+
                 <div className="mt-7 flex flex-wrap items-center gap-3">
                   <a
                     href="#contact"
