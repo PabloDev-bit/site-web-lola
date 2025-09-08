@@ -1,245 +1,334 @@
+// pages/index.tsx
+import Head from "next/head";
 import Image from "next/image";
+import Link from "next/link";
 
-export default function Page() {
+export default function Home() {
   return (
-    <main className="min-h-screen bg-white text-gray-900 selection:bg-emerald-200/60">
-      {/* ===== NAV ===== */}
-      <header className="sticky top-0 z-50 border-b bg-white/70 backdrop-blur supports-[backdrop-filter]:bg-white/50">
-        <div className="mx-auto max-w-7xl px-4 py-3 flex items-center justify-between">
-          <a href="#" className="group inline-flex items-center gap-2">
-            <span className="h-2.5 w-2.5 rounded-full bg-emerald-500 ring-4 ring-emerald-500/20 transition-transform group-hover:scale-110" />
-            <span className="text-sm font-semibold tracking-tight">Lola Hernandez</span>
-          </a>
-          <nav className="hidden md:flex items-center gap-7 text-[15px]">
-            <a className="hover:text-gray-700" href="#apropos">À propos</a>
-            <a className="hover:text-gray-700" href="#pour-qui">Pour qui ?</a>
-            <a className="hover:text-gray-700" href="#approche">Approche</a>
-            <a className="hover:text-gray-700" href="#bienfaits">Bienfaits</a>
-            <a className="hover:text-gray-700" href="#contact">Contact</a>
-          </nav>
-          <a href="#contact" className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-tr from-emerald-600 to-teal-500 px-4 py-2 text-sm font-medium text-white shadow-sm transition hover:shadow-md active:scale-95">
-            Prendre rendez-vous
-          </a>
-        </div>
-      </header>
+    <>
+      <Head>
+        <title>Lola Hernandez – Kinésiologue</title>
+        <meta
+          name="description"
+          content="Kinésiologie douce et holistique — séances adaptées pour enfants, parents, adultes et enseignants. À domicile ou à La Flachère (Les Belleville)."
+        />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+      </Head>
 
-      {/* ===== HERO (structure alignée) ===== */}
-      <section className="relative overflow-hidden">
-        {/* fond décoratif léger */}
-        <div className="pointer-events-none absolute inset-0 -z-10">
-          <div className="absolute -top-24 -left-24 h-[420px] w-[420px] rounded-full bg-emerald-300/30 blur-3xl" />
-          <div className="absolute -bottom-24 -right-24 h-[420px] w-[420px] rounded-full bg-teal-300/30 blur-3xl" />
-          <div className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-emerald-50 to-transparent" />
-        </div>
-
-        {/* Conteneur centré et équilibré */}
-        <div className="mx-auto max-w-6xl px-4">
-          <div className="grid grid-cols-1 items-center gap-10 py-16 md:grid-cols-2 md:py-24">
-            {/* Colonne texte */}
-            <div className="order-2 md:order-1">
-              <p className="text-sm font-medium text-emerald-700">Bonjour, je suis Lola.</p>
-              <h1 className="mt-2 text-4xl font-semibold leading-tight tracking-tight sm:text-5xl">
-                Kinésiologie & réflexes archaïques
-              </h1>
-              <p className="mt-4 max-w-xl text-[15px] text-gray-600">
-                En formation depuis 2024, j’accompagne avec douceur et structure vers plus de force, d’équilibre et de confiance.
-                Outils : <em>Santé par le toucher</em>, <em>Brain Gym</em>, <em>Aura énergétique</em>.
-              </p>
-              <div className="mt-8 flex flex-wrap items-center gap-3">
-                <a href="#contact" className="group inline-flex items-center gap-2 rounded-xl bg-gradient-to-tr from-emerald-600 to-teal-500 px-4 py-2 text-sm font-medium text-white shadow-sm transition hover:shadow-md active:scale-95">
-                  Réserver une séance
-                  <svg className="h-4 w-4 transition-transform group-hover:translate-x-0.5" viewBox="0 0 20 20" fill="currentColor"><path d="M10.293 3.293a1 1 0 011.414 0l5 5a.997.997 0 01.083 1.32l-.083.094-5 5a1 1 0 01-1.497-1.32l.083-.094L13.585 11H4a1 1 0 01-.117-1.993L4 9h9.585l-3.292-3.293a1 1 0 010-1.414z"/></svg>
-                </a>
-                <a href="#apropos" className="inline-flex items-center rounded-xl border px-4 py-2 text-sm font-medium text-gray-800 transition hover:bg-gray-50">
-                  Découvrir
-                </a>
-              </div>
+      {/* Fond crème → sable très clair, sans rose. */}
+      <main className="min-h-screen text-stone-800 bg-[#FAF5EF]">
+        {/* NAV */}
+        <header className="sticky top-0 z-30 bg-[#FAF5EF]/70 backdrop-blur border-b border-[#EDE1D4]">
+          <div className="mx-auto max-w-6xl px-4 py-3 flex items-center justify-between">
+            <div className="flex items-center gap-3">
+              <HandsLogo className="h-8 w-8 text-[#D8C2AE]" />
+              <span className="font-semibold tracking-wide text-stone-700">
+                Lola Hernandez
+              </span>
             </div>
+            <nav className="hidden sm:flex items-center gap-6 text-sm">
+              <a href="#pour-qui" className="hover:text-[#A37B53] transition">Pour qui ?</a>
+              <a href="#bienfaits" className="hover:text-[#A37B53] transition">Bienfaits</a>
+              <a href="#contact" className="hover:text-[#A37B53] transition">Contact</a>
+            </nav>
+          </div>
+        </header>
 
-            {/* Colonne image */}
-            <div className="order-1 md:order-2 md:pl-4">
-              <div className="mx-auto w-full max-w-md">
-                <div className="relative aspect-[4/5] w-full">
-                  <div className="absolute inset-0 -z-10 rounded-[2rem] bg-gradient-to-br from-emerald-200 via-teal-100 to-white blur-2xl" />
+        {/* HERO */}
+        <section className="relative">
+          {/* Dégradé radial beige en arrière-plan */}
+          <div
+            aria-hidden
+            className="pointer-events-none absolute inset-0 -z-10"
+            style={{
+              background:
+                "radial-gradient(1200px 600px at 20% 20%, #FFF8F1 0%, #F7EFE7 45%, #F3E7DB 75%, #FAF5EF 100%)",
+            }}
+          />
+          {/* Motif vague sable très clair */}
+          <WaveTop className="text-[#F1E7DB]" />
+
+          <div className="mx-auto max-w-6xl px-4 pt-12 pb-16">
+            <div className="grid lg:grid-cols-2 gap-12 items-center">
+              {/* Texte */}
+              <div className="order-2 lg:order-1">
+                <span className="inline-flex items-center gap-2 rounded-full bg-[#F1E8DE] px-3 py-1 text-xs text-[#8F6B46] border border-[#E7D7C6]">
+                  <HandsLogo className="h-4 w-4 text-[#C9AD92]" />
+                  Kinésiologie douce & holistique
+                </span>
+
+                <h1 className="mt-3 text-4xl sm:text-5xl font-semibold leading-tight text-stone-900">
+                  Bonjour, je suis <span className="text-[#A37B53]">Lola</span>
+                </h1>
+
+                <p className="mt-5 leading-relaxed text-stone-700">
+                  Mon chemin de vie m’a conduite vers la <strong>kinésiologie</strong>.
+                  J’ai commencé ma formation en <strong>septembre 2024</strong> pour transmettre
+                  force, équilibre et confiance. J’utilise déjà <em>Santé par le Toucher</em>,
+                  <em> Brain Gym</em> et <em>Aura énergétique</em> pour construire des séances
+                  douces et efficaces, adaptées à chacun.
+                </p>
+                <p className="mt-4 leading-relaxed text-stone-700">
+                  En <strong>septembre 2026</strong>, j’ajoute les <strong>réflexes archaïques</strong>
+                  afin d’accompagner enfants, adultes, parents et enseignants avec des clés durables.
+                </p>
+
+                <div className="mt-7 flex flex-wrap items-center gap-3">
+                  <a
+                    href="#contact"
+                    className="inline-flex items-center justify-center rounded-xl bg-[#A37B53] text-white px-5 py-3 text-sm font-medium shadow-sm hover:brightness-95 transition"
+                  >
+                    Prendre contact
+                  </a>
+                  <a
+                    href="#bienfaits"
+                    className="inline-flex items-center justify-center rounded-xl border border-[#E0D3C4] bg-white/70 px-5 py-3 text-sm font-medium hover:border-[#C9AD92] hover:text-[#8F6B46] transition"
+                  >
+                    Découvrir les bienfaits
+                  </a>
+                </div>
+              </div>
+
+              {/* Photo */}
+              <div className="relative order-1 lg:order-2">
+                {/* halo crème */}
+                <div className="absolute -inset-6 rounded-[2rem] bg-[#EADCCF]/50 blur-2xl" />
+                <div className="relative overflow-hidden rounded-[2rem] border border-[#E7D7C6] shadow-sm bg-white">
                   <Image
                     src="/lola-photo.JPG"
-                    alt="Photo de présentation de Lola Hernandez"
-                    fill
-                    className="rounded-[1.5rem] object-cover shadow-xl ring-1 ring-black/5"
-                    sizes="(max-width: 768px) 90vw, 480px"
+                    alt="Lola Hernandez"
+                    width={960}
+                    height={1200}
+                    className="h-full w-full object-cover"
                     priority
                   />
                 </div>
-                <div className="mt-3 flex items-center justify-center gap-2 text-xs text-gray-500">
-                  <span className="inline-block h-1.5 w-1.5 rounded-full bg-emerald-500" />
-                  Accompagnement avec douceur & authenticité
+                {/* mains filigrane caramel doux */}
+                <div className="absolute -bottom-6 -right-4 opacity-35">
+                  <HandsLogo className="h-20 w-20 text-[#D8C2AE]" />
                 </div>
               </div>
             </div>
           </div>
-        </div>
-      </section>
 
-      {/* ===== À PROPOS ===== */}
-      <section id="apropos" className="border-t bg-white">
-        <div className="mx-auto grid max-w-7xl grid-cols-1 items-start gap-10 px-4 py-16 md:grid-cols-2">
-          <div className="prose max-w-none">
-            <h2 className="text-2xl font-semibold tracking-tight">À propos</h2>
-            <p>
-              Je m’appelle <strong>Lola Hernandez</strong> et c’est mon propre chemin de vie, parsemé d’épreuves mais aussi de belles renaissances,
-              qui m’a conduite vers la kinésiologie. J’ai commencé ma formation en <strong>septembre 2024</strong>, avec le désir de transmettre
-              ce que cette pratique m’a apporté : de la force, de l’équilibre et de la confiance.
-            </p>
-            <p>
-              Je suis actuellement en <strong>formation</strong>, avec déjà des outils concrets — <em>Santé par le toucher</em>, <em>Brain Gym</em>,
-              et <em>Aura énergétique</em> — qui me permettent de construire des séances structurées et adaptées à chaque personne.
-            </p>
-            <p>
-              En <strong>septembre 2026</strong>, je me suis également dirigée vers les <strong>réflexes archaïques</strong>, pour accompagner enfants, adultes,
-              parents et enseignants avec des clés durables.
-            </p>
-          </div>
-          <div className="rounded-2xl border bg-gray-50 p-6 shadow-sm">
-            <h3 className="text-lg font-medium">Signature d’accompagnement</h3>
-            <ul className="mt-4 grid gap-3 text-sm text-gray-700">
-              <li className="flex items-start gap-3"><span className="mt-1 inline-block h-2 w-2 rounded-full bg-emerald-500"/>Approche douce, globale et personnalisée</li>
-              <li className="flex items-start gap-3"><span className="mt-1 inline-block h-2 w-2 rounded-full bg-emerald-500"/>Corps • émotions • mental en synergie</li>
-              <li className="flex items-start gap-3"><span className="mt-1 inline-block h-2 w-2 rounded-full bg-emerald-500"/>Outils : Santé par le toucher, Brain Gym, Aura énergétique</li>
-              <li className="flex items-start gap-3"><span className="mt-1 inline-block h-2 w-2 rounded-full bg-emerald-500"/>Formation continue depuis 2024</li>
-            </ul>
-          </div>
-        </div>
-      </section>
+          <WaveSeparator className="text-[#EEE3D7]" />
+        </section>
 
-      {/* ===== POUR QUI ===== */}
-      <section id="pour-qui" className="border-t bg-gray-50">
-        <div className="mx-auto max-w-7xl px-4 py-16">
-          <div className="max-w-2xl">
-            <h2 className="text-2xl font-semibold tracking-tight">Pour qui ?</h2>
-            <p className="mt-2 text-gray-600">La kinésiologie s’adresse à tous, quel que soit l’âge ou le parcours.</p>
-          </div>
-          <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {[
-              { title: 'Enfants', desc: 'Développement, apprentissages, concentration, émotions, confiance.' },
-              { title: 'Parents', desc: 'Mieux comprendre et accompagner son enfant au quotidien.' },
-              { title: 'Adultes', desc: 'Dépasser des blocages, gérer le stress, retrouver alignement.' },
-              { title: 'Enseignants & éducateurs', desc: 'Des outils concrets pour plus de sérénité et de compréhension.' },
-            ].map((c) => (
-              <div key={c.title} className="group rounded-2xl border bg-white p-6 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md">
-                <div className="flex items-center justify-between">
-                  <h3 className="font-medium">{c.title}</h3>
-                  <span className="h-2 w-2 rounded-full bg-emerald-500 transition group-hover:scale-125" />
-                </div>
-                <p className="mt-3 text-sm text-gray-600">{c.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+        {/* POUR QUI */}
+        <section id="pour-qui" className="py-16">
+          <div className="mx-auto max-w-6xl px-4">
+            <SectionTitle
+              eyebrow="Pour qui ?"
+              title="Un accompagnement pour tous les âges"
+              subtitle="Des séances adaptées avec douceur et authenticité."
+            />
 
-      {/* ===== APPROCHE ===== */}
-      <section id="approche" className="border-t bg-white">
-        <div className="mx-auto max-w-7xl px-4 py-16">
-          <div className="grid items-start gap-8 md:grid-cols-2">
-            <div className="prose max-w-none">
-              <h2 className="text-2xl font-semibold tracking-tight">Mon approche</h2>
-              <p>
-                Une séance est construite comme un parcours : écoute, recentrage, tests doux, protocoles adaptés et intégration.
-                L’objectif : créer les conditions d’un mieux‑être durable et d’un fonctionnement plus fluide au quotidien.
-              </p>
-              <ul className="mt-4 grid gap-2 text-sm text-gray-700">
-                <li>• Mise en confiance & objectifs clairs</li>
-                <li>• Protocoles issus de la kinésiologie (tests musculaires doux)</li>
-                <li>• Intégration avec des outils ciblés (Santé par le toucher, Brain Gym, Aura énergétique)</li>
-                <li>• Conseils simples pour prolonger les effets chez soi</li>
-              </ul>
+            <div className="mt-10 grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+              <Card title="Enfants" text="Développement, apprentissages, concentration, gestion des émotions, confiance en soi." />
+              <Card title="Parents" text="Mieux comprendre et accompagner vos enfants, trouver un soutien face aux défis du quotidien." />
+              <Card title="Adultes" text="Dépasser des blocages, gérer le stress, apaiser les émotions, retrouver confiance et alignement." />
+              <Card title="Enseignants" text="Des outils supplémentaires pour accompagner les enfants avec sérénité et compréhension." />
             </div>
-            <div className="rounded-2xl border bg-gradient-to-br from-emerald-50 to-white p-6 shadow-sm">
-              <h3 className="text-lg font-medium">Ce que vous ressentez souvent après</h3>
-              <div className="mt-4 grid gap-3 sm:grid-cols-2">
-                {['Apaisement', 'Clarté intérieure', 'Lâcher‑prise', 'Énergie plus stable'].map((k) => (
-                  <div key={k} className="rounded-xl border bg-white p-4 text-sm text-gray-700 shadow-sm transition hover:-translate-y-0.5">
-                    {k}
+          </div>
+        </section>
+
+        {/* BIENFAITS */}
+        <section id="bienfaits" className="relative py-16 bg-[#FFFDF9]">
+          <WaveTop className="text-[#F6EEE4]" />
+
+          <div className="mx-auto max-w-6xl px-4">
+            <SectionTitle
+              eyebrow="Bienfaits"
+              title="Retrouver l’équilibre entre le corps et l’esprit"
+              subtitle="Libérer les tensions, mieux gérer le stress et avancer plus sereinement."
+            />
+
+            <div className="mt-10 grid md:grid-cols-2 gap-8">
+              <List
+                items={[
+                  "Apaisement émotionnel et diminution du stress",
+                  "Confiance en soi, clarté intérieure et motivation",
+                  "Soutien dans les périodes de changement ou face aux blocages",
+                  "Accompagnement des sportifs : performance, pression, récupération",
+                ]}
+              />
+              <div className="relative">
+                <div className="absolute -inset-6 rounded-3xl blur-xl"
+                     style={{ background: "linear-gradient(120deg,#F2E7DA70,#EBDCCD70)" }} />
+                <div className="relative rounded-3xl border border-[#E7D7C6] bg-[#F7EFE7]/70 p-6">
+                  <p className="leading-relaxed text-stone-700">
+                    Chaque séance est unique. Grâce au test musculaire et à une écoute
+                    bienveillante, nous identifions ce qui a besoin d’être rééquilibré
+                    pour remettre en mouvement vos ressources profondes.
+                  </p>
+                  <div className="mt-6 flex items-center gap-3 text-sm">
+                    <HandsLogo className="h-5 w-5 text-[#C9AD92]" />
+                    <span className="text-stone-600">Approche globale, respectueuse et personnalisée.</span>
                   </div>
-                ))}
+                </div>
               </div>
             </div>
           </div>
-        </div>
-      </section>
 
-      {/* ===== BIENFAITS ===== */}
-      <section id="bienfaits" className="border-t bg-gray-50">
-        <div className="mx-auto max-w-7xl px-4 py-16">
-          <h2 className="text-2xl font-semibold tracking-tight">Les bienfaits</h2>
-          <p className="mt-2 max-w-3xl text-gray-600">
-            Vers un mieux‑être global : libération des tensions, meilleure gestion du stress, apaisement émotionnel et
-            équilibre corps‑esprit. Confiance, concentration, motivation et clarté intérieure pour avancer sereinement.
-          </p>
-          <div className="mt-10 grid gap-6 md:grid-cols-2">
-            {[
-              { title: 'Mieux‑être global', items: ['Tensions libérées', 'Sommeil & récupération', 'Énergie plus fluide'] },
-              { title: 'Régulation émotionnelle', items: ['Stress apaisé', 'Clarté mentale', 'Ancrage & recentrage'] },
-              { title: 'Performance & apprentissages', items: ['Concentration', 'Motivation', 'Progression sportive'] },
-              { title: 'Transitions de vie', items: ['Périodes de changement', 'Blocages', 'Épuisement'] },
-            ].map((g) => (
-              <div key={g.title} className="rounded-2xl border bg-white p-6 shadow-sm transition hover:shadow-md">
-                <div className="flex items-center justify-between">
-                  <h3 className="font-medium">{g.title}</h3>
-                  <span className="h-2 w-2 rounded-full bg-emerald-500" />
-                </div>
-                <ul className="mt-3 grid gap-2 text-sm text-gray-700">
-                  {g.items.map((it) => (<li key={it}>• {it}</li>))}
+          <WaveSeparator className="text-[#F6EEE4]" />
+        </section>
+
+        {/* CONTACT */}
+        <section id="contact" className="py-16">
+          <div className="mx-auto max-w-6xl px-4">
+            <SectionTitle
+              eyebrow="Contact"
+              title="Réserver une séance"
+              subtitle="À domicile ou chez moi à La Flachère (Les Belleville)."
+            />
+
+            <div className="mt-10 grid md:grid-cols-2 gap-8">
+              <div className="rounded-3xl border border-[#E7D7C6] bg-[#FFFDFB]/80 p-6">
+                <h3 className="font-semibold text-stone-800">Coordonnées</h3>
+                <ul className="mt-3 space-y-2 text-stone-700">
+                  <li>
+                    <span className="font-medium">Email :</span>{" "}
+                    <Link href="mailto:lola7473@hotmail.fr" className="text-[#8F6B46] underline underline-offset-2 hover:opacity-80">
+                      lola7473@hotmail.fr
+                    </Link>
+                  </li>
+                  <li>
+                    <span className="font-medium">Téléphone :</span>{" "}
+                    <a href="tel:+33659930142" className="text-[#8F6B46] hover:opacity-80">
+                      06 59 93 01 42
+                    </a>
+                  </li>
+                  <li>
+                    <span className="font-medium">Adresse :</span> 53 chemin des Greniers, 73440 Les Belleville
+                  </li>
                 </ul>
+                <p className="mt-4 text-xs text-stone-500">
+                  *Tarifs susceptibles d’évoluer en fonction des formations et certifications.
+                </p>
               </div>
-            ))}
-          </div>
-        </div>
-      </section>
 
-      {/* ===== CONTACT ===== */}
-      <section id="contact" className="border-t bg-white">
-        <div className="mx-auto max-w-7xl px-4 py-16">
-          <div className="grid gap-8 md:grid-cols-2">
-            <div className="rounded-2xl border bg-gray-50 p-6 shadow-sm">
-              <h2 className="text-2xl font-semibold tracking-tight">Contact & tarifs</h2>
-              <ul className="mt-6 grid gap-2 text-sm text-gray-800">
-                <li>Email : <a className="underline decoration-emerald-400 underline-offset-4 hover:text-emerald-700" href="mailto:lola7473@hotmail.fr">lola7473@hotmail.fr</a></li>
-                <li>Téléphone : <a className="underline decoration-emerald-400 underline-offset-4 hover:text-emerald-700" href="tel:+33659930142">06 59 93 01 42</a></li>
-                <li className="text-gray-700">Séance à domicile ou chez moi à La Flachère — 53 chemin des greniers, 73440 Les Belleville</li>
-              </ul>
-              <div className="mt-6 inline-flex items-center gap-3 rounded-2xl border bg-white p-3 shadow-sm">
-                <div className="h-10 w-10 rounded-xl bg-gradient-to-tr from-emerald-600 to-teal-500" />
-                <div className="text-sm text-gray-700">Réponse rapide par email. Décrivez brièvement votre besoin.</div>
-              </div>
-            </div>
-            <div className="rounded-2xl border bg-white p-6 shadow-sm">
-              <h3 className="text-lg font-medium">Tarifs</h3>
-              <div className="mt-4 grid gap-4 sm:grid-cols-2">
-                <div className="rounded-xl border bg-gradient-to-b from-gray-50 to-white p-5 shadow-sm">
-                  <div className="text-sm text-gray-500">Adulte</div>
-                  <div className="mt-1 text-2xl font-semibold">50 €</div>
-                </div>
-                <div className="rounded-xl border bg-gradient-to-b from-gray-50 to-white p-5 shadow-sm">
-                  <div className="text-sm text-gray-500">Enfant</div>
-                  <div className="mt-1 text-2xl font-semibold">35 €</div>
+              <div className="rounded-3xl border border-[#E7D7C6] bg-[#FFFDFB]/80 p-6">
+                <h3 className="font-semibold text-stone-800">Tarifs</h3>
+                <ul className="mt-3 grid sm:grid-cols-2 gap-3">
+                  <Price title="Adulte" value="50 € / séance" />
+                  <Price title="Enfant" value="35 € / séance" />
+                </ul>
+
+                <div className="mt-6">
+                  <a
+                    href="mailto:lola7473@hotmail.fr?subject=Prise%20de%20rendez-vous%20Kin%C3%A9siologie"
+                    className="inline-flex items-center justify-center rounded-xl bg-[#A37B53] text-white px-5 py-3 text-sm font-medium shadow-sm hover:brightness-95 transition"
+                  >
+                    Écrire à Lola
+                  </a>
                 </div>
               </div>
-              <p className="mt-3 text-xs text-gray-500">Tarifs susceptibles d’évoluer selon formations & certifications.</p>
-              <a href="mailto:lola7473@hotmail.fr" className="mt-6 inline-flex items-center gap-2 rounded-xl bg-gradient-to-tr from-emerald-600 to-teal-500 px-4 py-2 text-sm font-medium text-white shadow-sm transition hover:shadow-md active:scale-95">
-                Demander un créneau
-              </a>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* ===== FOOTER ===== */}
-      <footer className="border-t">
-        <div className="mx-auto max-w-7xl px-4 py-8 text-sm text-gray-500">
-          © {new Date().getFullYear()} Lola Hernandez — Kinésiologie & réflexes archaïques
-        </div>
-      </footer>
-    </main>
+        <footer className="border-t border-[#E7D7C6] py-8">
+          <div className="mx-auto max-w-6xl px-4 flex items-center justify-between text-sm text-stone-500">
+            <p>© {new Date().getFullYear()} Lola Hernandez — Kinésiologue</p>
+            <div className="flex items-center gap-2">
+              <HandsLogo className="h-5 w-5 text-[#D8C2AE]" />
+              <span>Site réalisé avec douceur</span>
+            </div>
+          </div>
+        </footer>
+      </main>
+    </>
+  );
+}
+
+/* ---------- Composants UI ---------- */
+function SectionTitle({
+  eyebrow,
+  title,
+  subtitle,
+}: { eyebrow: string; title: string; subtitle?: string }) {
+  return (
+    <div className="max-w-2xl">
+      <div className="text-xs inline-flex items-center gap-2 rounded-full bg-[#F1E8DE] px-3 py-1 text-[#8F6B46] border border-[#E7D7C6]">
+        <span>{eyebrow}</span>
+      </div>
+      <h2 className="mt-3 text-2xl sm:text-3xl font-semibold text-stone-900">{title}</h2>
+      {subtitle && <p className="mt-2 text-stone-600 leading-relaxed">{subtitle}</p>}
+    </div>
+  );
+}
+
+function Card({ title, text }: { title: string; text: string }) {
+  return (
+    <div className="group relative rounded-3xl border border-[#E7D7C6] bg-[#FFFCF8]/80 p-5 transition hover:border-[#C9AD92] hover:shadow-sm">
+      <div className="absolute -top-3 -right-3 opacity-30">
+        <HandsLogo className="h-8 w-8 text-[#D8C2AE]" />
+      </div>
+      <h3 className="font-semibold text-stone-800">{title}</h3>
+      <p className="mt-2 text-sm text-stone-700 leading-relaxed">{text}</p>
+    </div>
+  );
+}
+
+function List({ items }: { items: string[] }) {
+  return (
+    <ul className="space-y-3">
+      {items.map((t, i) => (
+        <li key={i} className="flex items-start gap-3">
+          <span className="mt-1">
+            <HandsLogo className="h-5 w-5 text-[#C9AD92]" />
+          </span>
+          <span className="text-stone-700">{t}</span>
+        </li>
+      ))}
+    </ul>
+  );
+}
+
+function Price({ title, value }: { title: string; value: string }) {
+  return (
+    <li className="rounded-2xl border border-[#E7D7C6] bg-[#F7EFE7] p-4">
+      <div className="text-stone-600 text-sm">{title}</div>
+      <div className="text-stone-900 font-semibold">{value}</div>
+    </li>
+  );
+}
+
+/* ---------- Icônes & Vagues ---------- */
+function HandsLogo({ className }: { className?: string }) {
+  // Pictogramme "deux mains" doux et organique
+  return (
+    <svg viewBox="0 0 64 64" className={className} fill="none" aria-hidden="true">
+      <path d="M9 34c6-5 13-9 21-11 2-.6 3.8.7 3.7 2.6-.2 3.9-3.3 6.9-8.4 8.8"
+            stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+      <path d="M55 30c-6.1-4.4-13-7.5-20.3-9-2.1-.4-3.9 1.3-3.7 3.4.4 4.2 3.8 7 9.1 8.5"
+            stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+      <path d="M15 44c6.5-1.5 13.1-2.2 19.7-2.1 2.2 0 3.9 1.9 3.6 4.1-.4 3.1-3.4 5.5-7.6 5.9"
+            stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+      <path d="M49 44c-6.2-1.3-12.6-1.9-19-1.6-2.2.1-3.9 2.1-3.4 4.2.8 3 3.8 5 7.9 5"
+            stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+    </svg>
+  );
+}
+
+function WaveSeparator({ className }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 1440 120" className={`w-full h-[80px] ${className}`} preserveAspectRatio="none" aria-hidden="true">
+      <path
+        d="M0,64L60,69.3C120,75,240,85,360,96C480,107,600,117,720,112C840,107,960,85,1080,80C1200,75,1320,85,1380,90L1440,96L1440,0L1380,0C1320,0,1200,0,1080,0C960,0,840,0,720,0C600,0,480,0,360,0C240,0,120,0,60,0L0,0Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+}
+
+function WaveTop({ className }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 1440 120" className={`w-full h-[60px] ${className}`} preserveAspectRatio="none" aria-hidden="true">
+      <path
+        d="M0,32L60,37.3C120,43,240,53,360,64C480,75,600,85,720,80C840,75,960,53,1080,48C1200,43,1320,53,1380,58.7L1440,64L1440,0L1380,0C1320,0,1200,0,1080,0C960,0,840,0,720,0C600,0,480,0,360,0C240,0,120,0,60,0L0,0Z"
+        fill="currentColor"
+      />
+    </svg>
   );
 }
