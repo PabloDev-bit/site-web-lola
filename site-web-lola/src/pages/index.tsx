@@ -6,6 +6,8 @@ import Link from "next/link";
 
 import BienfaitsWithWhale from "@/components/BienfaitsWithWhale";
 import Testimonials from "@/components/Testimonials";
+import MissionCoeur from "@/components/MissionCoeur";
+import ReflexesArchaiques from "@/components/ReflexesArchaïques";
 
 export default function Home() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -106,8 +108,8 @@ export default function Home() {
           <WaveTop className="text-[#F1E7DB]" />
 
           <div className="mx-auto max-w-6xl px-4 pt-8 sm:pt-12 pb-14 sm:pb-16">
-            {/* Mobile-first: l'image en premier, texte ensuite */}
-            <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 items-center">
+            {/* grille avec colonne gauche contrainte */}
+            <div className="grid lg:grid-cols-[minmax(0,680px)_1fr] gap-10 sm:gap-12 items-start">
               {/* IMAGE */}
               <div className="relative order-1 lg:order-2">
                 <div className="absolute -inset-6 rounded-[2rem] bg-[#EADCCF]/50 blur-2xl" />
@@ -129,47 +131,55 @@ export default function Home() {
 
               {/* TEXTE */}
               <div className="order-2 lg:order-1">
-                <span className="inline-flex items-center gap-2 rounded-full bg-[#F1E8DE] px-3 py-1 text-[11px] sm:text-xs text-[#8F6B46] border border-[#E7D7C6]">
-                  <HandsLogo className="h-4 w-4 text-[#C9AD92]" />
-                  Kinésiologie douce & holistique
-                </span>
+                {/* wrapper colonne gauche pour centrage mobile + alignement desktop */}
+                <div className="mx-auto lg:mx-0 max-w-[680px] flex flex-col">
+                  <span className="inline-flex items-center gap-2 rounded-full bg-[#F1E8DE] px-3 py-1 text-[11px] sm:text-xs text-[#8F6B46] border border-[#E7D7C6]">
+                    <HandsLogo className="h-4 w-4 text-[#C9AD92]" />
+                    Kinésiologie douce & holistique
+                  </span>
 
-                <h1 className="mt-3 text-3xl sm:text-4xl lg:text-5xl font-semibold leading-tight text-stone-900">
-                  Bonjour, je suis <span className="text-[#A37B53]">Lola</span>
-                </h1>
+                  <h1 className="mt-3 text-3xl sm:text-4xl lg:text-5xl font-semibold leading-tight text-stone-900">
+                    Bonjour, je suis <span className="text-[#A37B53]">Lola</span>
+                  </h1>
 
-                {/* Description validée */}
-                <p className="mt-4 sm:mt-5 text-base sm:text-[1.05rem] leading-relaxed text-stone-700">
-                  Je suis <strong>Lola Hernandez</strong>, passionnée par le bien-être et par
-                  l’<strong>intelligence du corps</strong>. La <strong>kinésiologie</strong> est
-                  devenue pour moi une évidence&nbsp;: elle révèle le dialogue entre le
-                  <em> cerveau</em>, le <em>corps</em> et les <em>émotions</em>, et ouvre la voie
-                  à l’<strong>équilibre</strong>, à la <strong>régénération</strong> et à la
-                  découverte de nos <strong>ressources intérieures</strong>.
-                </p>
+                  {/* Description validée */}
+                  <p className="mt-4 sm:mt-5 text-base sm:text-[1.05rem] leading-relaxed text-stone-700">
+                    Je suis <strong>Lola Hernandez</strong>, passionnée par le bien-être et par
+                    l’<strong>intelligence du corps</strong>. La <strong>kinésiologie</strong> est
+                    devenue pour moi une évidence&nbsp;: elle révèle le dialogue entre le
+                    <em> cerveau</em>, le <em>corps</em> et les <em>émotions</em>, et ouvre la voie
+                    à l’<strong>équilibre</strong>, à la <strong>régénération</strong> et à la
+                    découverte de nos <strong>ressources intérieures</strong>.
+                  </p>
 
-                {/* Contexte formation & outils */}
-                <p className="mt-3 sm:mt-4 text-base sm:text-[1.05rem] leading-relaxed text-stone-700">
-                  En formation depuis <strong>septembre 2024</strong>, j’accompagne déjà avec
-                  <em> Santé par le Toucher</em>, <em> Brain Gym</em> et l’<em>Aura énergétique</em>
-                  afin de construire des séances douces et personnalisées. Dès{" "}
-                  <strong>septembre 2026</strong>, j’ajouterai le travail sur les{" "}
-                  <strong>réflexes archaïques</strong>.
-                </p>
+                  {/* Contexte formation & outils */}
+                  <p className="mt-3 sm:mt-4 text-base sm:text-[1.05rem] leading-relaxed text-stone-700">
+                    En formation depuis <strong>septembre 2024</strong>, j’accompagne déjà avec
+                    <em> Santé par le Toucher</em>, <em> Brain Gym</em> et l’<em>Aura énergétique</em>
+                    afin de construire des séances douces et personnalisées. Dès{" "}
+                    <strong>septembre 2026</strong>, j’ajouterai le travail sur les{" "}
+                    <strong>réflexes archaïques</strong>.
+                  </p>
 
-                <div className="mt-6 sm:mt-7 flex flex-col sm:flex-row sm:flex-wrap items-stretch sm:items-center gap-3">
-                  <a
-                    href="#contact"
-                    className="w-full sm:w-auto inline-flex items-center justify-center rounded-xl bg-[#A37B53] text-white px-5 py-3 text-sm font-medium shadow-sm hover:brightness-95 transition"
-                  >
-                    Prendre contact
-                  </a>
-                  <a
-                    href="#bienfaits"
-                    className="w-full sm:w-auto inline-flex items-center justify-center rounded-xl border border-[#E0D3C4] bg-white/80 px-5 py-3 text-sm font-medium hover:border-[#C9AD92] hover:text-[#8F6B46] transition"
-                  >
-                    Découvrir les bienfaits
-                  </a>
+                  {/* Mission de cœur */}
+                  <MissionCoeur className="mt-6 sm:mt-8" />
+                  <ReflexesArchaiques className="mt-6 sm:mt-8" />
+
+                  {/* Boutons */}
+                  <div className="mt-6 sm:mt-8 flex flex-col sm:flex-row sm:flex-wrap items-stretch sm:items-center gap-3">
+                    <a
+                      href="#contact"
+                      className="w-full sm:w-auto inline-flex items-center justify-center rounded-xl bg-[#A37B53] text-white px-5 py-3 text-sm font-medium shadow-sm hover:brightness-95 transition"
+                    >
+                      Prendre contact
+                    </a>
+                    <a
+                      href="#bienfaits"
+                      className="w-full sm:w-auto inline-flex items-center justify-center rounded-xl border border-[#E0D3C4] bg-white/80 px-5 py-3 text-sm font-medium hover:border-[#C9AD92] hover:text-[#8F6B46] transition"
+                    >
+                      Découvrir les bienfaits
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>
@@ -216,7 +226,6 @@ export default function Home() {
           subtitle="Des mots reçus après des accompagnements, partagés avec leur accord."
           businessName="Lola Hernandez – Kinésiologue"
           businessUrl="https://ton-domaine.com"
-          // Optionnel: tu peux passer un tableau testimonials personnalisé ici
         />
 
         {/* CONTACT */}
