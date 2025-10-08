@@ -39,7 +39,7 @@ export default function Home() {
             {/* Desktop nav */}
             <nav className="hidden md:flex items-center gap-6 text-sm">
               <a href="#pour-qui" className="hover:text-[#A37B53] transition">Pour qui ?</a>
-              <a href="#bienfaits" className="hover:text-[#A37B53] transition">Bienfaits</a>
+              <a href="#bienfaits" className="hover:text-[#A37B53] transition">Pourquoi ?</a>
               <a href="#temoignages" className="hover:text-[#A37B53] transition">Avis</a>
               <a href="#contact" className="hover:text-[#A37B53] transition">Contact</a>
             </nav>
