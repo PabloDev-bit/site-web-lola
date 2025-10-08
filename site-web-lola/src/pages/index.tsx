@@ -210,13 +210,7 @@ export default function Home() {
        <BienfaitsWithWhale
   title="Retrouver l’équilibre entre le corps et l’esprit"
   subtitle="Libérer les tensions, mieux gérer le stress et avancer plus sereinement."
-  items={[
-    "Apaisement émotionnel et diminution du stress",
-    "Confiance en soi, clarté intérieure et motivation",
-    "Soutien dans les périodes de changement ou face aux blocages",
-    "Accompagnement des sportifs : performance, pression, récupération",
-  ]}
-  whaleSrc="/lola_pratique.jpg"
+  
 />
         </section>
 
