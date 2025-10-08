@@ -208,8 +208,8 @@ export default function Home() {
         {/* BIENFAITS */}
         <section id="bienfaits" className="scroll-mt-24">
        <BienfaitsWithWhale
-  title="Retrouver l’équilibre entre le corps et l’esprit"
-  subtitle="Libérer les tensions, mieux gérer le stress et avancer plus sereinement."
+  title="Pourquoi faire une séance de kinésiologie ?"
+  
   
 />
         </section>
