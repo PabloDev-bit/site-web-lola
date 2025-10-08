@@ -74,7 +74,7 @@ export default function Home() {
                   onClick={() => setMenuOpen(false)}
                   className="py-3 text-base border-b border-[#F0E6DA] hover:text-[#A37B53]"
                 >
-                  Bienfaits
+                  Pourquoi ?
                 </a>
                 <a
                   href="#temoignages"
