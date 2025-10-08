@@ -155,8 +155,8 @@ export default function Home() {
                   {/* Contexte formation & outils */}
                   <p className="mt-3 sm:mt-4 text-base sm:text-[1.05rem] leading-relaxed text-stone-700">
                     En formation depuis <strong>septembre 2024</strong>, j’accompagne déjà avec
-                    <em> Santé par le Toucher</em>, <em> Édukinésiologie</em> et l’<em>Aura énergétique</em> afin de construire des séances douces et personnalisées. Dès{" "}
-                    <strong>septembre 2025</strong>, j’ajouterai le travail sur les{" "}
+                    <em> Santé par le Toucher</em>, <em> Édukinésiologie</em> et l’<em>Aura énergétique</em> afin de construire des séances douces et personnalisées. En{" "}
+                    <strong>2025</strong>, j’ajoute le travail sur les{" "}
                     <strong>réflexes archaïques</strong>.
                   </p>
 
