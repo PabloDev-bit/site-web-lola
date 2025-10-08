@@ -155,7 +155,7 @@ export default function Home() {
                   {/* Contexte formation & outils */}
                   <p className="mt-3 sm:mt-4 text-base sm:text-[1.05rem] leading-relaxed text-stone-700">
                     En formation depuis <strong>septembre 2024</strong>, j’accompagne déjà avec
-                    <em> Santé par le Toucher</em>, <em> Brain Gym</em> et l’<em>Aura énergétique</em>
+                    <em> Santé par le Toucher</em>, <em> Édukinésiologie</em> et l’<em>Aura énergétique</em>
                     afin de construire des séances douces et personnalisées. Dès{" "}
                     <strong>septembre 2025</strong>, j’ajouterai le travail sur les{" "}
                     <strong>réflexes archaïques</strong>.
@@ -255,7 +255,7 @@ export default function Home() {
                     </a>
                   </li>
                   <li>
-                    <span className="font-medium">Adresse :</span> 53 chemin des Greniers, 73440 Les Belleville
+                    <span className="font-medium">Adresse :</span> Rue du Nant du Four, lekoutere, 73440 Les Belleville
                   </li>
                 </ul>
                 <p className="mt-4 text-xs text-stone-500">
@@ -266,7 +266,7 @@ export default function Home() {
               <div className="rounded-3xl border border-[#E7D7C6] bg-[#FFFDFB]/80 p-5 sm:p-6">
                 <h3 className="font-semibold text-stone-800">Tarifs</h3>
                 <ul className="mt-3 grid grid-cols-1 sm:grid-cols-2 gap-3">
-                  <Price title="Adulte" value="65 € / séance" />
+                  <Price title="Adulte et enfant" value="65 € / séance" />
                 </ul>
                 <div className="mt-6">
                   <a
