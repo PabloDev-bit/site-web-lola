@@ -177,7 +177,7 @@ export default function Home() {
                       href="#bienfaits"
                       className="w-full sm:w-auto inline-flex items-center justify-center rounded-xl border border-[#E0D3C4] bg-white/80 px-5 py-3 text-sm font-medium hover:border-[#C9AD92] hover:text-[#8F6B46] transition"
                     >
-                      Découvrir les bienfaits
+                      Pourquoi venir en séance ?
                     </a>
                   </div>
                 </div>
