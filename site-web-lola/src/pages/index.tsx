@@ -139,12 +139,12 @@ export default function Home() {
                   </span>
 
                   <h1 className="mt-3 text-3xl sm:text-4xl lg:text-5xl font-semibold leading-tight text-stone-900">
-                    Bonjour, je suis <span className="text-[#A37B53]">Lola</span>
+                    Praticienne en kinésiologie et spécialisée en réflexes archaïques 
                   </h1>
 
                   {/* Description validée */}
                   <p className="mt-4 sm:mt-5 text-base sm:text-[1.05rem] leading-relaxed text-stone-700">
-                    Je suis <strong>Lola Hernandez</strong>, passionnée par le bien-être et par
+                    Passionnée par le bien-être et par
                     l’<strong>intelligence du corps</strong>. La <strong>kinésiologie</strong> est
                     devenue pour moi une évidence&nbsp;: elle révèle le dialogue entre le
                     <em> cerveau</em>, le <em>corps</em> et les <em>émotions</em>, et ouvre la voie
@@ -157,13 +157,14 @@ export default function Home() {
                     En formation depuis <strong>septembre 2024</strong>, j’accompagne déjà avec
                     <em> Santé par le Toucher</em>, <em> Brain Gym</em> et l’<em>Aura énergétique</em>
                     afin de construire des séances douces et personnalisées. Dès{" "}
-                    <strong>septembre 2026</strong>, j’ajouterai le travail sur les{" "}
+                    <strong>septembre 2025</strong>, j’ajouterai le travail sur les{" "}
                     <strong>réflexes archaïques</strong>.
                   </p>
 
                   {/* Mission de cœur */}
-                  <MissionCoeur className="mt-6 sm:mt-8" />
+                 
                   <ReflexesArchaiques className="mt-6 sm:mt-8" />
+                   <MissionCoeur className="mt-6 sm:mt-8" />
 
                   {/* Boutons */}
                   <div className="mt-6 sm:mt-8 flex flex-col sm:flex-row sm:flex-wrap items-stretch sm:items-center gap-3">
@@ -207,16 +208,17 @@ export default function Home() {
 
         {/* BIENFAITS */}
         <section id="bienfaits" className="scroll-mt-24">
-          <BienfaitsWithWhale
-            title="Retrouver l’équilibre entre le corps et l’esprit"
-            subtitle="Libérer les tensions, mieux gérer le stress et avancer plus sereinement."
-            items={[
-              "Apaisement émotionnel et diminution du stress",
-              "Confiance en soi, clarté intérieure et motivation",
-              "Soutien dans les périodes de changement ou face aux blocages",
-              "Accompagnement des sportifs : performance, pression, récupération",
-            ]}
-          />
+       <BienfaitsWithWhale
+  title="Retrouver l’équilibre entre le corps et l’esprit"
+  subtitle="Libérer les tensions, mieux gérer le stress et avancer plus sereinement."
+  items={[
+    "Apaisement émotionnel et diminution du stress",
+    "Confiance en soi, clarté intérieure et motivation",
+    "Soutien dans les périodes de changement ou face aux blocages",
+    "Accompagnement des sportifs : performance, pression, récupération",
+  ]}
+  whaleSrc="/lola_pratique.jpg"
+/>
         </section>
 
         {/* AVIS (Testimonials) */}
@@ -242,8 +244,8 @@ export default function Home() {
                 <ul className="mt-3 space-y-2 text-stone-700">
                   <li>
                     <span className="font-medium">Email :</span>{" "}
-                    <Link href="mailto:lola7473@hotmail.fr" className="text-[#8F6B46] underline underline-offset-2 hover:opacity-80">
-                      lola7473@hotmail.fr
+                    <Link href="mailto:lolakinesio@gmail.com" className="text-[#8F6B46] underline underline-offset-2 hover:opacity-80">
+                      lolakinesio@gmail.com
                     </Link>
                   </li>
                   <li>
@@ -264,8 +266,7 @@ export default function Home() {
               <div className="rounded-3xl border border-[#E7D7C6] bg-[#FFFDFB]/80 p-5 sm:p-6">
                 <h3 className="font-semibold text-stone-800">Tarifs</h3>
                 <ul className="mt-3 grid grid-cols-1 sm:grid-cols-2 gap-3">
-                  <Price title="Adulte" value="50 € / séance" />
-                  <Price title="Enfant" value="35 € / séance" />
+                  <Price title="Adulte" value="65 € / séance" />
                 </ul>
                 <div className="mt-6">
                   <a
