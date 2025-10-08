@@ -251,9 +251,7 @@ export default function Home() {
                     <span className="font-medium">Adresse :</span> Rue du Nant du Four, lekoutere, 73440 Les Belleville
                   </li>
                 </ul>
-                <p className="mt-4 text-xs text-stone-500">
-                  *Tarifs susceptibles d’évoluer en fonction des formations et certifications.
-                </p>
+               
               </div>
 
               <div className="rounded-3xl border border-[#E7D7C6] bg-[#FFFDFB]/80 p-5 sm:p-6">
