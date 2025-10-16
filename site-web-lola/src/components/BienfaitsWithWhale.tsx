@@ -38,7 +38,10 @@ export default function BienfaitsWithWhale({
         ].join(" ")}
       >
         {/* En-tête */}
-      
+        <div className="max-w-2xl">
+          <h2 className="text-2xl sm:text-3xl font-semibold text-stone-900">{title}</h2>
+          {subtitle && <p className="mt-2 text-stone-600 leading-relaxed">{subtitle}</p>}
+        </div>
 
         {/* Contenu en deux colonnes */}
         <div className="mt-10 grid gap-10 md:grid-cols-2">
@@ -94,25 +97,8 @@ export default function BienfaitsWithWhale({
             />
           </div>
 
-          {/* Partie droite — image et avertissement */}
-          <div className="flex flex-col gap-6">
-            <div
-              className={[
-                "relative overflow-hidden rounded-[28px] border border-[#E7D7C6] bg-white/70 shadow-[0_6px_24px_rgba(163,123,83,0.06)]",
-                "h-[320px] sm:h-[360px] md:h-[400px] transition-opacity duration-700",
-                visible ? "opacity-100" : "opacity-0",
-              ].join(" ")}
-            >
-              <Image
-                src={whaleSrc}
-                alt="Illustration symbolique de bien-être"
-                fill
-                sizes="(min-width:1024px) 560px, 100vw"
-                className="object-cover object-[center_85%] animate-[floatSoft_10s_ease-in-out_infinite] motion-reduce:animate-none"
-                priority
-              />
-            </div>
-
+          {/* Partie droite — uniquement l’avertissement maintenant */}
+          <div className="flex flex-col justify-center">
             <div className="rounded-2xl border border-[#E7D7C6] bg-[#F7EFE7]/70 p-5 text-sm text-stone-700 shadow-[0_4px_12px_rgba(163,123,83,0.05)]">
               ⚠️ <strong>Important :</strong> la kinésiologie n’est pas une pratique médicale et ne
               remplace pas un suivi médical ou psychologique. Elle vient en complément, pour
@@ -121,21 +107,6 @@ export default function BienfaitsWithWhale({
           </div>
         </div>
       </div>
-
-      {/* Animation douce de la baleine */}
-      <style jsx global>{`
-        @keyframes floatSoft {
-          0% {
-            transform: translate3d(0, 0px, 0);
-          }
-          50% {
-            transform: translate3d(0, -6px, 0);
-          }
-          100% {
-            transform: translate3d(0, 0px, 0);
-          }
-        }
-      `}</style>
     </section>
   );
 }
