@@ -8,6 +8,8 @@ import BienfaitsWithWhale from "@/components/BienfaitsWithWhale";
 import Testimonials from "@/components/Testimonials";
 import MissionCoeur from "@/components/MissionCoeur";
 import ReflexesArchaiques from "@/components/ReflexesArchaïques";
+import Bienfaits from "@/components/Bienfaits";
+
 
 export default function Home() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -204,6 +206,10 @@ export default function Home() {
             </div>
           </div>
         </section>
+
+<section id="les-bienfaits" className="scroll-mt-24">
+  <Bienfaits />
+</section>
 
         {/* BIENFAITS */}
         <section id="bienfaits" className="scroll-mt-24">

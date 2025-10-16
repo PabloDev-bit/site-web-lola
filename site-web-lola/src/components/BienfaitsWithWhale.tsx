@@ -98,13 +98,7 @@ export default function BienfaitsWithWhale({
           </div>
 
           {/* Partie droite — uniquement l’avertissement maintenant */}
-          <div className="flex flex-col justify-center">
-            <div className="rounded-2xl border border-[#E7D7C6] bg-[#F7EFE7]/70 p-5 text-sm text-stone-700 shadow-[0_4px_12px_rgba(163,123,83,0.05)]">
-              ⚠️ <strong>Important :</strong> la kinésiologie n’est pas une pratique médicale et ne
-              remplace pas un suivi médical ou psychologique. Elle vient en complément, pour
-              favoriser l’équilibre global et le bien-être.
-            </div>
-          </div>
+          
         </div>
       </div>
     </section>
