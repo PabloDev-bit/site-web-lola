@@ -38,13 +38,7 @@ export default function BienfaitsWithWhale({
         ].join(" ")}
       >
         {/* En-tête */}
-        <div className="max-w-2xl">
-          <div className="text-xs inline-flex items-center gap-2 rounded-full bg-[#F1E8DE] px-3 py-1 text-[#8F6B46] border border-[#E7D7C6]">
-            
-          </div>
-          <h2 className="mt-3 text-2xl sm:text-3xl font-semibold text-stone-900">{title}</h2>
-          {subtitle && <p className="mt-2 text-stone-600 leading-relaxed">{subtitle}</p>}
-        </div>
+      
 
         {/* Contenu en deux colonnes */}
         <div className="mt-10 grid gap-10 md:grid-cols-2">

@@ -258,9 +258,9 @@ export default function Home() {
                 <h3 className="font-semibold text-stone-800">Tarifs</h3>
                 <ul className="mt-3 grid grid-cols-1 sm:grid-cols-2 gap-3">
                   <Price title="Adulte et enfant" value="65 € / séance" />
-                  
+                  <strong> <p> Une séance de kinésiologie dure environ 1h30.</p> </strong>
                 </ul>
-                <p> Une séance de kinésiologie dure environ 1 heure et demie.</p>
+                
                 <div className="mt-6">
                   <a
                     href="mailto:lola7473@hotmail.fr?subject=Prise%20de%20rendez-vous%20Kin%C3%A9siologie"
