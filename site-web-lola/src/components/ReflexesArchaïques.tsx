@@ -1,4 +1,6 @@
 // components/ReflexesArchaiques.tsx
+import Image from "next/image";
+
 type Props = { className?: string };
 
 export default function ReflexesArchaiques({ className = "" }: Props) {
@@ -22,6 +24,17 @@ export default function ReflexesArchaiques({ className = "" }: Props) {
         <strong>motricité</strong>, de la <strong>concentration</strong> et de la{" "}
         <strong>confiance en soi</strong>.
       </p>
+
+      {/* 📸 Image bien centrée */}
+      <div className="my-6 flex justify-center">
+        <Image
+          src="/relfexes.jpeg" // place ton image ici : /public/images/reflexes.jpg
+          alt="Illustration des réflexes archaïques"
+          width={900}
+          height={500}
+          className="rounded-xl shadow-md border border-[#E7D7C6] object-cover"
+        />
+      </div>
 
       <p className="mt-3 text-base sm:text-[1.05rem] text-stone-700">
         Quand certains réflexes restent actifs, l’enfant peut rencontrer des difficultés à
